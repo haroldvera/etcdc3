@@ -1,4 +1,4 @@
-# Etcdc
+# Etcdc v3 API
 
 **TODO: Add description**
 
