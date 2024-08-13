@@ -1,15 +1,16 @@
 defmodule Etcdc do
   use Tesla
 
-  # Fetch the etcd URL from config
-  @etcd_url Application.compile_env(:etcdc, :etcd_url, "http://localhost:4001/v3")
+  # Fetch the etcd URL from config at compile time
+  @etcd_url Application.compile_env(:etcdc, :etcd_url, "http://localhost:2379/v3")
+
   # Use the JSON middleware for Tesla
   plug(Tesla.Middleware.JSON)
 
   @doc """
   Set a key-value pair in etcd.
   """
-  def set(key, value) do
+  def set_m(key, value) do
     url = "#{@etcd_url}/kv/put"
 
     body = %{
@@ -29,7 +30,7 @@ defmodule Etcdc do
   @doc """
   Get a value by key from etcd.
   """
-  def get(key) do
+  def get_m(key) do
     url = "#{@etcd_url}/kv/range"
 
     body = %{
@@ -48,6 +49,7 @@ defmodule Etcdc do
         end
 
       {:error, reason} ->
+        IO.puts("response body: #{inspect(reason)}")
         {:error, reason}
     end
   end
