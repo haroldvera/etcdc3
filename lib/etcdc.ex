@@ -2,9 +2,9 @@ defmodule Etcdc do
   use Tesla
 
   # Fetch the etcd URL from config at compile time
-  @etcd_url Application.compile_env(:etcdc, :etcd_url, "http://localhost:2379/v3")
-
+  @etcd_url System.get_env("ETCD_URL") || "http://localhost:4001/v3"
   # Use the JSON middleware for Tesla
+
   plug(Tesla.Middleware.JSON)
 
   @doc """
