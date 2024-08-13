@@ -21,4 +21,20 @@ be found at <https://hexdocs.pm/etcdc>.
 
 # etcdc3
 
+config,
+
 export ETCD_URL="http://localhost:port/v3"
+
+## Usage
+
+```elixir
+iex> Etcdc.get("key")
+{:ok, "value"}  
+```
+
+```elixir
+iex> Etcdc.put("key", "value")
+{:ok, "value"}  
+```
+
+
