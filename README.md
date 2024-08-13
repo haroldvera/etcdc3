@@ -20,3 +20,5 @@ and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at <https://hexdocs.pm/etcdc>.
 
 # etcdc3
+
+export ETCD_URL="http://localhost:port/v3"
