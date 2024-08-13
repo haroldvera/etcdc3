@@ -21,10 +21,11 @@ be found at <https://hexdocs.pm/etcdc>.
 
 # etcdc3
 
-config,
+shell config,
 
+```bash
 export ETCD_URL="http://localhost:port/v3"
-
+```
 ## Usage
 
 ```elixir
